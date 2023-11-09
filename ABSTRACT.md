@@ -1,5 +1,6 @@
+The authors of **ASAYAR** dataset collected 1765 images from Moroccan highways, covering two round trips totaling approximately 2000 km.It includes two round trips: the first one from Oujda to Rabat, and
+the second one from Tangier to Casablanca. The images, recorded with a Nikon D3300 camera with 24 megapixels and a Samsung Galaxy S7 smartphone camera with 13 megapixels, feature various types of Moroccan highway panels, including Arabic/French text, regulatory signs, and warning traffic signs, with consideration given to environmental factors during the data annotation process.
 
-Sample image template:
-<img src="https://github.com/dataset-ninja/gland-segmentation/assets/78355358/f158d0dd-71d5-41a2-aba5-4a5f57d54c35" alt="image" width="800">
+The labelers of ASAYAR invested over 2000 hours of work, spanning nine months, to manually annotate the dataset. The annotated detection dataset is organized into three folders—ASAYAR_SIGN for traffic sign objects, ASAYAR_TXT for text-based panels with word and line level annotations, and ASAYAR_SYM for panels featuring annotated directional symbols.
 
-<span style="font-size: smaller; font-style: italic;">Image description.</span>
+The authors employed the stratified sampling method to divide the sub-datasets into training (80%) and testing (20%) sets, ensuring balanced classes in each. For ASAYAR_SIGN, the training set comprises 1416 images, with 349 in the testing set. ASAYAR_TXT includes 1100 training samples and 275 testing samples, incorporating both word-level and line-level datasets. Lastly, ASAYAR_SYM has 444 images for training and 114 for testing.
