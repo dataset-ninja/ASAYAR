@@ -15,7 +15,7 @@ from dataset_tools.templates import (
 ##################################
 PROJECT_NAME: str = "ASAYAR"
 PROJECT_NAME_FULL: str = "ASAYAR: A Dataset for Arabic-Latin Text Detection"
-HIDE_DATASET = True  # set False when 100% sure about repo quality
+HIDE_DATASET = False  # set False when 100% sure about repo quality
 
 ##################################
 # * After uploading to instance ##
@@ -23,7 +23,7 @@ HIDE_DATASET = True  # set False when 100% sure about repo quality
 LICENSE: License = License.Custom(
     "https://vcar.github.io/ASAYAR/conditions/", redistributable=False
 )
-APPLICATIONS: List[Union[Industry, Domain, Research]] = [Domain.OCR(is_used=False)]
+APPLICATIONS: List[Union[Industry, Domain, Research]] = [Industry.Automotive(), Domain.OCR()]
 CATEGORY: Category = Category.SelfDriving()
 
 CV_TASKS: List[CVTask] = [CVTask.ObjectDetection()]
@@ -45,7 +45,7 @@ GITHUB_URL: str = "https://github.com/dataset-ninja/asayar"
 ##################################
 ### * Optional after uploading ###
 ##################################
-DOWNLOAD_ORIGINAL_URL: Optional[Union[str, dict]] = None
+DOWNLOAD_ORIGINAL_URL: Optional[Union[str, dict]] = "https://vcar.github.io/ASAYAR/#download"
 # Optional link for downloading original dataset (e.g. "https://some.com/dataset/download")
 
 CLASS2COLOR: Optional[Dict[str, List[str]]] = None
@@ -61,18 +61,30 @@ REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = None
 
 CITATION_URL: Optional[str] = "https://vcar.github.io/ASAYAR/"
 AUTHORS: Optional[List[str]] = [
-    "M. Akallouch",
-    "K. S. Boujemaa",
-    "A. Bouhoute",
-    "K. Fardousse",
-    "I. Berrada",
+    "Mohammed Akallouch",
+    "Kaoutar Sefrioui Boujemaa",
+    "Afaf Bouhoute",
+    "Khalid Fardousse",
+    "Ismail Berrada",
+]
+AUTHORS_CONTACTS: Optional[List[str]] = [
+    "mohammed.akallouch@usmba.ac.ma",
+    "ismail.berrada@usmba.ac.ma",
+    "khalid.fardousse@usmba.ac.ma",
+]
+ORGANIZATION_NAME: Optional[Union[str, List[str]]] = [
+    "Sidi Mohamed Ben Abdellah University, Morocco",
+    "Mohammed VI Polytechnic University, Morocco",
+]
+ORGANIZATION_URL: Optional[Union[str, List[str]]] = [
+    "https://www.usmba.ac.ma/~usmba2/",
+    "http://um6p.ma/en",
 ]
 
-ORGANIZATION_NAME: Optional[Union[str, List[str]]] = None
-ORGANIZATION_URL: Optional[Union[str, List[str]]] = None
-
 # Set '__PRETEXT__' or '__POSTTEXT__' as a key with string value to add custom text. e.g. SLYTAGSPLIT = {'__POSTTEXT__':'some text}
-SLYTAGSPLIT: Optional[Dict[str, Union[List[str], str]]] = None
+SLYTAGSPLIT: Optional[Dict[str, Union[List[str], str]]] = {
+    "__PRETEXT__": "Addirionally, every image contains information about its ***type***: sign, text, or sym"
+}
 TAGS: Optional[List[str]] = None
 
 
@@ -120,6 +132,7 @@ def get_settings():
     settings["repository"] = REPOSITORY
     settings["citation_url"] = CITATION_URL
     settings["authors"] = AUTHORS
+    settings["authors_contacts"] = AUTHORS_CONTACTS
     settings["organization_name"] = ORGANIZATION_NAME
     settings["organization_url"] = ORGANIZATION_URL
     settings["slytagsplit"] = SLYTAGSPLIT
